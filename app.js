@@ -12,13 +12,13 @@ app.use(express.json());
 const server = http.createServer(app)
 const io = require('socket.io')(server , {
     cors:{
-        origin:'http://localhost:5173/',
+        origin:'http://localhost:5173',
         methods:['GET','POST']
     }
 })
 app.use(express.urlencoded({extended:true}))
 app.use(cors(
-  {origin:'http://localhost:5173/'}
+  {origin:'http://localhost:5173'}
 ));
 app.use(morgan("dev"));
 app.use("/chitshat", Router);
