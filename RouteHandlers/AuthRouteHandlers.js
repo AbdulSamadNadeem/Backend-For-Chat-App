@@ -64,6 +64,7 @@ exports.loginuser = async (req, res) => {
       token,
       data: validateUser,
     });
+    console.log(token)
   } catch (err) {
     res.status(400).json({
       status: "Failed",
