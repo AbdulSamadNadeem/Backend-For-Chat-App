@@ -10,12 +10,12 @@ const http = require('http');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
+// CORS configuration
 const corsOptions = {
-  origin: 'http://localhost:5173', // Match the frontend's origin
-  methods: ['GET', 'POST', 'PUT'], // Specify allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
-  credentials: true, // Enable cookies/credentials
+  origin: 'http://localhost:5173', 
+  methods: ['GET', 'POST', 'PUT'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true, 
 };
 app.use(cors(corsOptions));
 
@@ -25,10 +25,10 @@ app.use(morgan("dev"));
 
 app.use("/chitshat", Router);
 
-// Create HTTP server and initialize Socket.IO
+
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
-  cors: corsOptions 
+  cors: corsOptions // Use the same CORS options for Socket.IO
 });
 
 io.on('connection', (socket) => {
