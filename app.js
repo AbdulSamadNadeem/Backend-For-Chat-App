@@ -7,13 +7,13 @@ const morgan = require("morgan");
 const Router = require("./Routes/Routes");
 const http = require('http');
 
+app.use(cors(
+  {origin:'https://chit-shat.vercel.app'}
+));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(cors(
-  {origin:'https://chit-shat.vercel.app'}
-));
 
 
 app.use(morgan("dev"));
