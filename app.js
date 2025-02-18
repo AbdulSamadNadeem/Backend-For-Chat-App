@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cors(
-  {origin:'http://localhost:5173'}
+  {origin:'https://chit-shat.vercel.app'}
 ));
 
 
@@ -25,7 +25,7 @@ app.use("/chitshat", Router);
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin:'http://localhost:5173',
+    origin:'https://chit-shat.vercel.app',
       methods:['GET','POST']
             }
 });
