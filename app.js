@@ -5,6 +5,7 @@ const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 const Router = require("./Routes/Routes");
+
 const http = require("http");
 
 app.use(express.json());
@@ -18,7 +19,10 @@ const io = require("socket.io")(server, {
 });
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: "https://chit-shat.vercel.app", credentials: true }));
+
 app.use(morgan("dev"));
+
+
 app.use("/chitshat", Router);
 
 io.on("connection", (socket) => {
@@ -32,6 +36,7 @@ io.on("connection", (socket) => {
   });
   socket.on("typing", (data) => {
     io.to(data.members[0]).to(data.members[1]).emit("started", data);
+
   });
 });
 
