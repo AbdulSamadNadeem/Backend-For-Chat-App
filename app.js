@@ -28,9 +28,7 @@ app.use("/chitshat", Router);
 // Create HTTP server and initialize Socket.IO
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
-  cors: {
-            origin:"*",
-    methods: ["GET", "POST", "PUT"],
+  cors: corsOptions 
 });
 
 io.on('connection', (socket) => {
