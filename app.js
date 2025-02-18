@@ -11,9 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(cors(
-  {origin:'https://chit-shat.vercel.app'}
-));
+app.use(cors());
 
 
 app.use(morgan("dev"));
