@@ -12,13 +12,13 @@ app.use(express.json());
 const server = http.createServer(app)
 const io = require('socket.io')(server , {
     cors:{
-        origin:'https://abdulsamadnadeem.github.io/Chit-Shat',
+        origin:'https://chit-shat-abdulsamadnadeems-projects.vercel.app',
         methods:['GET','POST']
     }
 })
 app.use(express.urlencoded({extended:true}))
 app.use(cors(
-  {origin:'https://abdulsamadnadeem.github.io/Chit-Shat'}
+  {origin:'https://chit-shat-abdulsamadnadeems-projects.vercel.app'}
 ));
 app.use(morgan("dev"));
 app.use("/chitshat", Router);
