@@ -53,7 +53,7 @@ const AuthSchema = new mongoose.Schema({
     type:Boolean,
     default:false
   }
-});
+},{timestamps:true});
 
 AuthSchema.pre("save", async function (next) {
   const user = this;

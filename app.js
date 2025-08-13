@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 const morgan = require("morgan");
 const Router = require("./Routes/Routes");
-const socket = require('./socket')
+const socket = require("./socket");
 const http = require("http");
 
 app.use(express.json());
@@ -13,12 +13,11 @@ app.use(express.json());
 const server = http.createServer(app);
 
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: "https://chit-shat.vercel.app", credentials: true }));
+app.use(cors());
 
 app.use(morgan("dev"));
-socket(server)
+socket(server);
 
 app.use("/chitshat", Router);
-
 
 module.exports = server;
